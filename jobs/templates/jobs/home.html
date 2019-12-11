@@ -1,7 +1,11 @@
-
 <!doctype html>
 <html lang="en">
+{% load staticfiles %}
+{% load static %}
+
 <head>
+
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -12,40 +16,43 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
   <style>
-  .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
-  }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
   </style>
   <!-- Custom styles for this template -->
   <link href="album.css" rel="stylesheet">
 </head>
+
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #bff442;">
-      <a class="navbar-brand" href="#">Prabal Deshar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="{% url 'home' %}">Prabal Deshar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link " href="#">Twitter </a>
-          <a class="nav-item nav-link" href="#">Resume</a>
-          <a class="nav-item nav-link" href="#">Blog</a>
+          <a class="nav-item nav-link" href="{% static 'Prabal_CV2.pdf' %}">Resume</a>
+          <!-- <a class="nav-item nav-link" href="{% url 'allblogs'%}">Blog</a> -->
         </div>
       </div>
     </nav>
@@ -56,30 +63,133 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1 class="jumbotron-heading">Hi, I'm Prabal</h1>
-        <p class="lead text-muted">Hey, my name is Prabal Deshar. I am a computer enginerring student and I love making cool stuff</p>
+        <p class="lead text-muted">Hey, my name is Prabal Deshar. I am a computer engineer and I love making
+          cool stuffs</p>
         <p>
+          <br>
+
+          <img src="{% static 'IMG_5502.jpg' %}" height="600px" width="500x" class="img-fluid img-thumbnail"
+            alt="Responsive image">
           <br>
           <a href="mailto:prabaldeshar@gmail.com" class="btn btn-primary my-2">Email</a>
 
         </p>
       </div>
     </section>
+    <!-- <div class="container-fluid">
+      <div class="row p-5">
+        <div class="col-md-6 ">
+          
+          <h1>Education</h1>
+          <p>
+            <h2>Bachelors in Computer Engineering</h2>
 
+            College:<b>Himalya College of Engineering</b>
+
+            Chyasal,Lalitpur
+            <br>
+            University:<b>Tribhuvan University</b>
+            <br>
+            Date: <b>2015-2019</b>
+
+
+          </p>
+
+        </div>
+        <div class="col-md-6 ">
+
+          <h1 class=>Skills</h1>
+          <ul class="list-unstyled">
+
+            <ul>
+              {% for skill in skills %}
+              <li>{{skill}}</li>
+              {% endfor %}
+            </ul>
+
+          </ul>
+
+
+        </div>
+      </div>
+    </div> -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <h5 class="card-header">
+              Education
+            </h5>
+            <div class="card-body">
+              <p class="card-text">
+
+                <h2>Bachelors in Computer Engineering</h2>
+
+                College:<b>Himalya College of Engineering</b>
+
+                Chyasal,Lalitpur
+                <br>
+                University:<b>Tribhuvan University</b>
+                <br>
+                Date: <b>2015-2019</b>
+
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <h5 class="card-header">
+              Skills
+            </h5>
+            <div class="card-body">
+              <p class="card-text">
+                <ul class="list-unstyled">
+
+                  <ul>
+                    {% for skill in skills %}
+                    <li>{{skill}}</li>
+                    {% endfor %}
+                  </ul>
+
+                </ul>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="album py-5 bg-light">
       <div class="container">
-
+        <h1>Social Links</h1>
         <div class="row">
-          {% for job in jobs.all %}
+          {% for social in socials %}
+
           <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img src="{{job.image.url}}" class="img-fluid" style="height:300px" alt="Responsive image" >
+            <!-- <div class="card mb-1 shadow-sm"> -->
+            <a href="{{social.link}}">
+              <img src="{{social.image.url}}" class="rounded" style="height:120px" alt="Responsive image">
 
               <div class="card-body">
-                <p class="card-text">{{job.summary}}</p>
+                <p>
+                  <b>{{social.title}}</b>
+                </p>
 
               </div>
-            </div>
+            </a>
+            <!-- </div> -->
           </div>
+
           {% endfor %}
 
 
@@ -89,12 +199,51 @@
     </div>
 
 
-</main>
 
-<footer class="text-muted">
-  <div class="container text-center">
-    <p>© Prabal Deshar {%now 'Y' %} </p>
+
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <h1>Projects</h1>
+        <div class="row">
+          {% for project in projects %}
+
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <a href="{{project.link}}">
+                <img src="{{project.image.url}}" class="rounded" style="height:300px" alt="Responsive image">
+
+                <div class="card-body">
+                  <b>{{project.title}}</b>
+
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {% endfor %}
+
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer class="text-muted">
+    <div class="container text-center">
+      <p>© Prabal Deshar {%now 'Y' %} </p>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script></html>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+</html>
