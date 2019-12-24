@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'portfoliodb',
         'USER': 'postgres',
         'PASSWORD': 'django1234',
-        'HOST': 'portfolio-prabal.herokuapp.com',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
