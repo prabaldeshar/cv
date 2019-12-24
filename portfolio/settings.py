@@ -76,8 +76,14 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-   'default': dj_database_url.config(
-        default=config('DATABASE_URL')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfoliodb',
+        'USER': 'postgres',
+        'PASSWORD': 'django1234',
+        'HOST': 'portfolio-prabal.herokuapp.com',
+        'PORT': '5432',
+    }
 }
 
 
